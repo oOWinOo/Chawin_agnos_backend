@@ -14,6 +14,7 @@ func SubmitPassword(c *gin.Context){
 		c.JSON(http.StatusBadRequest,gin.H{
 			"error" : err.Error(),
 		})
+		return
 	}
 	password.Steps = findSteps(password.Password)
 	result := database.Db.Create(password)
@@ -21,9 +22,11 @@ func SubmitPassword(c *gin.Context){
 		c.JSON(http.StatusBadRequest,gin.H{
 			"error" : result.Error.Error(),
 		})
+		return
 	}
 	c.JSON(http.StatusOK, gin.H{
-		"Password Receive": password,
+		"num_of_steps":password.Steps,
 	})
+	return
 }
 

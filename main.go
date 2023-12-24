@@ -14,7 +14,7 @@ func main() {
 	database.UpdateDatabase()
 	app := gin.New()
 
-	app.POST("/",controllers.SubmitPassword)
+	app.POST("/api/strong_password_steps",controllers.SubmitPassword)
 	
 	log.Fatal(app.Run(":1234"))
 }
