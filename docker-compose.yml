@@ -1,12 +1,23 @@
 version : '3.9'
 
 services:
-  custom-nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  password_test:
+    image: nginx:1.13.0-alpine
+    container_name: password_test_site
     ports:
       - "8080:80"
+    volumes:
+      - ./password_test:/var/www/html/agnos
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+
+  docker_proxy:
+      image: nginx
+      container_name: docker_proxy
+      volumes:
+        - ./nginx/conf.d:/etc/nginx/conf.d
+      ports:
+        - "80:80"
+
   postgres:
     image : postgres:12
     environment:
@@ -24,7 +35,5 @@ services:
       - PGADMIN_LISTEN_PORT=5050
     ports:
       - "5050:5050"
-
-
 volumes:
   data: 

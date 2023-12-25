@@ -10,11 +10,11 @@ COPY . .
 
 RUN go build -o main .
 
-#nginx
-FROM nginx:latest
+# #nginx
+# FROM nginx:latest
 
-COPY ./index.html /usr/share/nginx/html/index.html
+# COPY ./index.html /usr/share/nginx/html/index.html
 
-EXPOSE 8080
+# EXPOSE 8080
 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]

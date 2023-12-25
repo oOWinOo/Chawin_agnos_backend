@@ -1,6 +1,9 @@
 package controllers
 
-import "unicode"
+import (
+	"strings"
+	"unicode"
+)
 
 func findSteps(password string) uint {
 	length := len(password)
@@ -35,6 +38,17 @@ func findSteps(password string) uint {
 		return uint(max(stepsToAdd(password), editSteps2) + editSteps)
 
 	}
+
+}
+
+func checkSpecial(password string)(string,bool){
+	special := `@#$%^&*()_+-= {}[]|\:;"'<>,/`
+	for _,char := range password{
+		if strings.Contains(special, string(char)){
+			return string(char),false
+		}
+	}
+	return "", true
 
 }
 
