@@ -7,9 +7,17 @@
 <body>
     <h2>Testing your password</h2>
     <input type="text" id="input" placeholder="Insert password here">
-    <button id = "submit" >Submit</button>
+    <button id = "submit">Submit</button>
     <div id="output"></div>
 </body>
+<style>
+    body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
 <script>
     document.getElementById("submit").addEventListener("click", async _ => {
         try {     
@@ -23,11 +31,16 @@
                     }),
                 });
                 const data = await response.json();
-
-                document.getElementById('output').innerText = `${JSON.stringify(data)}`;
+                if ("error" in data) {
+                    document.getElementById('output').innerText = `${data.error}`;
+                } else if ("num_of_steps" in data) {
+                    document.getElementById('output').innerText = `Minimum number of actions to make the password strong : ${data.num_of_steps}`;
+                }else{
+                    document.getElementById('output').innerText = `"Error"`;
+                }
             } catch (err) {
                 console.error(`Error: ${err}`);
-            }
+        }
     });
 </script>
 

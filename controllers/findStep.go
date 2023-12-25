@@ -5,6 +5,8 @@ import (
 	"unicode"
 )
 
+
+
 func findSteps(password string) uint {
 	length := len(password)
 	if length <= 3 { 
@@ -36,20 +38,26 @@ func findSteps(password string) uint {
 			editSteps2 += stepOfOrderNum(i) * inTheRow[i]
 		}
 		return uint(max(stepsToAdd(password), editSteps2) + editSteps)
-
 	}
 
+}
+
+func checkWhiteSpace(password string)(bool){
+	special := strings.ReplaceAll(password," ","")
+	if (special != password){
+		return true
+	}
+	return false
 }
 
 func checkSpecial(password string)(string,bool){
 	special := `@#$%^&*()_+-= {}[]|\:;"'<>,/`
 	for _,char := range password{
 		if strings.Contains(special, string(char)){
-			return string(char),false
+			return string(char),true
 		}
 	}
-	return "", true
-
+	return "", false
 }
 
 func stepsToAdd(word string) int { //  Contains at least 1 lowercase letter, at least 1 uppercase letter, and at least 1 digit

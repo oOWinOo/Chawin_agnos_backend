@@ -16,6 +16,19 @@ func SubmitPassword(c *gin.Context){
 		})
 		return
 	}
+	if whiteSpace := checkWhiteSpace(password.Password); whiteSpace {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "The password cannot be whitespace.",
+		})
+		return 
+	}
+	if char,special := checkSpecial(password.Password); special{
+		output := "The password cannot contain the character '" + char+ "'"
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": output,
+		})
+		return 
+	}
 	password.Steps = findSteps(password.Password)
 	result := database.Db.Create(password)
 	if result.Error != nil{
