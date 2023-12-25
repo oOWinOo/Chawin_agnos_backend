@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	database.ConnectToDataBase()
 	database.UpdateDatabase()
 	app := gin.New()
@@ -23,7 +22,7 @@ func main() {
 	app.OPTIONS("/api/strong_password_steps", func(c *gin.Context) {
 		c.Status(http.StatusOK)
 	})
-	app.POST("/api/strong_password_steps",controllers.SubmitPassword)
-	
+	app.POST("/api/strong_password_steps", controllers.SubmitPassword)
+
 	log.Fatal(app.Run(":8000"))
 }
