@@ -14,7 +14,7 @@ import (
 
 var Db *gorm.DB
 const(
-	host     = "localhost"
+	// host     = "postgres"
 	port     = 5432
 	user     = "postgres"
 	password = "postgres"
@@ -22,7 +22,7 @@ const(
 )
 
 
-func ConnectToDataBase() {
+func ConnectToDataBase(host string) {
 	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s", host, port, user, password, dbname)
 	newLogger := logger.New(
 		log.New(os.Stdout,"\r\n",log.LstdFlags),

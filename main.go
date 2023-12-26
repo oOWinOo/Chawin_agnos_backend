@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("postgres")
 	database.UpdateDatabase()
 	app := gin.New()
 	app.Use(CORSMiddleware())

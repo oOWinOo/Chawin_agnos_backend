@@ -14,10 +14,9 @@ import (
 )
 
 func TestHandler(t *testing.T) {
-
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "value"}`
 
@@ -39,7 +38,7 @@ func TestEx1(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "aA1"}`
 
@@ -62,7 +61,7 @@ func TestEx2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "1445D1cd"}`
 
@@ -85,7 +84,7 @@ func Test4CharAdd2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "abcd"}`
 
@@ -107,7 +106,7 @@ func Test4CharAdd3(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "...."}`
 
@@ -130,7 +129,7 @@ func Test5CharAdd1(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "abcdE"}`
 
@@ -153,7 +152,7 @@ func Test5CharAdd2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "abcde"}`
 
@@ -176,7 +175,7 @@ func Test5CharAdd2_2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "AAAAA"}`
 
@@ -199,7 +198,7 @@ func Test5CharAdd3(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "!.!.!"}`
 
@@ -222,7 +221,7 @@ func Test6CharNoAdd(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "Abc44a"}`
 
@@ -245,7 +244,7 @@ func Test6CharAdd1(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "abcdeF"}`
 
@@ -269,7 +268,7 @@ func Test6CharAdd1_2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "1beeeF"}`
 
@@ -292,7 +291,7 @@ func Test6CharAdd2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "baaabb"}`
 
@@ -315,7 +314,7 @@ func Test13CharAdd0(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "AbddS2rewf355"}`
 
@@ -338,7 +337,7 @@ func Test13CharAdd1(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "AbddS222rf355"}`
 
@@ -361,7 +360,7 @@ func Test13CharAdd4(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "aaauuuiiioooq"}`
 
@@ -384,7 +383,7 @@ func Test17CharAdd5(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "11122244477755555"}` // replace the value of middle to make its not repeat
 
@@ -407,7 +406,7 @@ func Test28Remove8(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "A234567890abcdefghij12345678"}`
 
@@ -430,7 +429,7 @@ func Test28Remove8_2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "A234567890abcdefghij12345666"}` // 1 repeat 3 in the row and 28 char BUT use only 8 step(remove)
 
@@ -453,7 +452,7 @@ func Test62Remove42(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"}`
 
@@ -476,7 +475,7 @@ func Test130Remove110Replace2(t *testing.T) {
 
 	router := gin.New()
 	gin.SetMode(gin.ReleaseMode)
-	database.ConnectToDataBase()
+	database.ConnectToDataBase("localhost")
 	router.POST("/api/strong_password_steps", controllers.SubmitPassword)
 	input := `{"init_password": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"}`
 
@@ -487,7 +486,7 @@ func Test130Remove110Replace2(t *testing.T) {
 	w := httptest.NewRecorder()
 
 	router.ServeHTTP(w, req)
-
+	
 	assert.Equal(t, http.StatusOK, w.Code)
 	output := `{"num_of_steps":112}`
 	assert.Equal(t, output, w.Body.String())
